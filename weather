@@ -1,0 +1,25 @@
+import requests, json
+import pandas as pd
+from pandas import json_normalize
+
+
+api_key = ""
+
+base_url = "http://api.openweathermap.org/data/2.5/weather?"
+
+lat = '45.8232'
+lon = '15.7292'
+
+id_url = 'lat=%s&lon=%s&timezone=Europe/Zagreb&appid=' %(lat,lon)
+
+complete_url = base_url + id_url+api_key
+
+response = requests.get(complete_url)
+
+json_res = response.json()
+
+
+k = json_res['main']
+
+df = pd.DataFrame.from_dict(k,  orient='index') # rient='index' to make dictionary key as rows
+print(df)
