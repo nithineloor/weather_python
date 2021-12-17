@@ -3,7 +3,7 @@ import pandas as pd
 from pandas import json_normalize
 
 
-api_key = ""
+api_key = "" # Put the AP key here
 
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
 
